@@ -33,7 +33,7 @@ curl -kL https://raw.githubusercontent.com/goncalogiga/ternest/master/install.sh
 
 ```bash
 cd
-rm -rf .ternest
+sudo rm -rf .ternest
 cd ./.local/bin
 rm ternest
 ```
