@@ -6,4 +6,3 @@ mv ternest .ternest
 cd .ternest/
 gcc ternest.c -o ternest
 mv ternest ../.local/bin
-echo "Testing ternest... (first use)"
