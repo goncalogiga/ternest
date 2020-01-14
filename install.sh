@@ -15,3 +15,4 @@ mv ternest .ternest
 cd .ternest/
 gcc ternest.c -o ternest
 mv ternest ../.local/bin
+echo "Ternest is now installed! Use ternest --config to set it up completly."
