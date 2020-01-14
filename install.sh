@@ -7,8 +7,8 @@ if [ -d ".ternest" ] ; then
   rm -rf .ternest
 else
   echo "Installing ternest..."
-  
-# GET TERNEST FROM GIT HUB AND MOVE EXE FILE INTO BIN FOLDER 
+
+# GET TERNEST FROM GIT HUB AND MOVE EXE FILE INTO BIN FOLDER
 git clone https://github.com/goncalogiga/ternest.git
 mv ternest .ternest
 cd .ternest/
@@ -31,4 +31,3 @@ touch ./.ternest/cache/new_marks.txt
 
 # LAUNCH TERNEST FOR TESTING
 ternest
-
