@@ -10,12 +10,8 @@ else
 fi
 
 # GET TERNEST FROM GIT HUB AND MOVE EXE FILE INTO BIN FOLDER
-sudo git clone https://github.com/goncalogiga/ternest.git
+git clone https://github.com/goncalogiga/ternest.git
 mv ternest .ternest
 cd .ternest/
 gcc ternest.c -o ternest
 mv ternest ../.local/bin
-
-# Launch the config initializer
-chmod 755 ./user/first_launch.sh
-bash ./user/first_launch.sh
