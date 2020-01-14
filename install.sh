@@ -16,8 +16,10 @@ cd .ternest/
 gcc ternest.c -o ternest
 mv ternest ../.local/bin
 
-touch $HOME/.ternest/user/your_marks.txt
+mkdir user
+touch ./user/config.txt
+touch ./user/your_marks.txt
 mkdir cache
-touch $HOME/.ternest/cache/new_marks.txt
+touch ./cache/new_marks.txt
 
 echo "Ternest is now installed! Use ternest --config to set it up completly."
