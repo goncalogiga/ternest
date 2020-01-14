@@ -68,10 +68,14 @@ start_config()
   if( i >= 32)
     goto OVERFLOW;
 
+  goto CONTINUE;
+
   OVERFLOW: {
     puts("Exited to prevent overflow. No nasty stuff please.");
     exit(1);
   }
+
+  CONTINUE: {
 
   FILE * config;
   char * config_path = calloc(100 , sizeof(char));
@@ -88,7 +92,8 @@ start_config()
   free(browser);
 
   fclose(config);
-
+  
+  }
 }
 
 void
