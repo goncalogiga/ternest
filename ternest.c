@@ -117,10 +117,10 @@ parse_args(int argc, char **argv , type_args * args)
    const char * short_opt = "hs:";
    struct option long_opt[] =
    {
-      {"help",    no_argument,       NULL, 'h'},
-      {"show",    required_argument, NULL, 's'},
-      {"config",  no_argument      , NULL, 'c'},
-      {    0 ,                  0,  0  , 0  }
+      {"help"  ,    no_argument,       NULL, 'h'},
+      {"show"  ,    required_argument, NULL, 's'},
+      {"config",    no_argument      , NULL, 'c'},
+      {       0,                    0,    0,   0}
    };
 
    while((c = getopt_long(argc, argv, short_opt, long_opt, NULL)) != -1)
