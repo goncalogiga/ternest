@@ -25,5 +25,5 @@ rm geckodriver-v0.23.0-linux64.tar.gz
 #### Setup
 
 ```bash
-curl -kL https://github.com/goncalogiga/ternest.git/raw/master/install.sh | bash
+curl -kL https://raw.githubusercontent.com/goncalogiga/ternest/master/install.sh | bash
 ```
