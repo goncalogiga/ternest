@@ -177,13 +177,13 @@ while( count < strlen(line) )
 {
   c = line[count];
 
-  if( c == 'F')
+  if( c == 'F' || c == 'f' )
   {
     free(line);
     fclose(config);
     return 1;
   }
-  if(c == 'C')
+  if(c == 'C' || c == 'c' )
   {
     free(line);
     fclose(config);
