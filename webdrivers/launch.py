@@ -44,6 +44,7 @@ def create_marks(browser):
 def check_for_new_marks(browser):
 
     count = 0
+    mark_numerical = 0.0
     prev_marks_elements=[]
 
     try:
@@ -83,6 +84,7 @@ def check_for_new_marks(browser):
             new_marks.write(marks_line[0].text[:-11])
             new_marks.write(": ")
             new_marks.write(marks_line[2].text)
+
             new_marks.write("\n")
 
             count += 1
@@ -148,7 +150,22 @@ def ernest(browser):
     if(count > 0):
         lines = new_marks.readlines()
         for line in lines:
-            print('-> {:s}'.format(line.split(':')[0]))
+            print('-> {:s}'.format(line.split(':')[0]), end='')
+
+            mark_numerical = float(line.split(':')[1][:4])
+            if mark_numerical < 5.0:
+                print("     (you really fucked this one up)")
+            elif mark_numerical < 7.0:
+                print("     (warning: it's quite shit)")
+            elif mark_numerical < 10.0:
+                print("     (watch out, it's not great...)")
+            elif mark_numerical > 10.0:
+                print("     (the mark is ok, don't worry)")
+            elif mark_numerical > 14.0:
+                print("     (this is good stuff !!)")
+            else:
+                print("     (Unrecognized numerical value. This might be a bug.)")
+
         print('Use ternest --show=new to see your new marks.')
 
     new_marks.close()
