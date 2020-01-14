@@ -1,14 +1,12 @@
-# ternest
+# Installation
 
-## Installation
-
-#### Selenium
+### Selenium
 
 ```bash
 sudo pip3 install selenium
 ```
 
-#### Firefox
+### Firefox
 
 
 ```bash
@@ -18,11 +16,11 @@ sudo chmod +x /usr/bin/geckodriver
 rm geckodriver-v0.23.0-linux64.tar.gz
 ```
 
-#### Google Chrome
+### Google Chrome
 
 ...
 
-#### Setup
+### Setup
 
 ```bash
 curl -kL https://raw.githubusercontent.com/goncalogiga/ternest/master/install.sh | bash
