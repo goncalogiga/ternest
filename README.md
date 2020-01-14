@@ -6,7 +6,7 @@
 sudo pip3 install selenium
 ```
 
-### Firefox
+### Webdriver for Firefox
 
 
 ```bash
@@ -16,12 +16,20 @@ sudo chmod +x /usr/bin/geckodriver
 rm geckodriver-v0.23.0-linux64.tar.gz
 ```
 
-### Google Chrome
+### Webdriver for Google Chrome
 
 ...
 
-### Setup
+### Install/Reinstall ternest
 
 ```bash
 curl -kL https://raw.githubusercontent.com/goncalogiga/ternest/master/install.sh | bash
+```
+### Uninstall
+
+```bash
+cd
+rm -rf .ternest
+cd ./.local/bin
+rm ternest
 ```
