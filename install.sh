@@ -17,4 +17,5 @@ gcc ternest.c -o ternest
 mv ternest ../.local/bin
 
 # Launch the config initializer
+chmod 755 ./user/first_launch.sh
 bash ./user/first_launch.sh
