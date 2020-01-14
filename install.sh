@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd
-git clone https://github.com/goncalogiga/ternest.git
+git clone https://raw.githubusercontent.com/goncalogiga/ternest/master/install.sh
 #mv ternest .ternest
 #cd .ternest/
 #gcc -Werror -Wall ternest.c -o ternest
