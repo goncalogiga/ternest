@@ -1,5 +1,7 @@
 # Installation
 
+## Dependecies
+
 ### Selenium
 
 ```bash
@@ -20,7 +22,9 @@ rm geckodriver-v0.23.0-linux64.tar.gz
 
 ...
 
-### Install/Reinstall ternest
+## Ternest
+
+### Install/Reinstall 
 
 ```bash
 curl -kL https://raw.githubusercontent.com/goncalogiga/ternest/master/install.sh | bash
