@@ -28,6 +28,70 @@ void file_fail_test(FILE* f, const char * function, const int line)
 }
 
 void
+start_config()
+{
+  char * birthdate  = calloc(32 , sizeof(char));
+  char * student_id = calloc(32 , sizeof(char));
+  char * browser    = calloc(32 , sizeof(char));
+  int i = 0;
+
+  puts("Please enter your birthdate (DDMMYYYY) : ");
+
+  do {
+  birthdate[i] = getchar();
+  i++;
+  } while(birthdate[i-1] != '\n' && i < 32 );
+  birthdate[i-1] = '\0';
+
+  if( i >= 32)
+    goto OVERFLOW;
+  i = 0;
+  puts("Please enter your student number : ");
+
+  do {
+  student_id[i] = getchar();
+  i++;
+  } while(student_id[i-1] != '\n' && i < 32 );
+  student_id[i-1] = '\0';
+
+  if( i >= 32)
+    goto OVERFLOW;
+  i = 0;
+  puts("Please enter your desired browser (Firefox or Chrome) : ");
+
+  do {
+  browser[i] = getchar();
+  i++;
+  } while(browser[i-1] != '\n' && i < 32 );
+  browser[i-1] = '\0';
+
+  if( i >= 32)
+    goto OVERFLOW;
+
+  OVERFLOW: {
+    puts("Exited to prevent overflow. No nasty stuff please.");
+    exit(1);
+  }
+
+  FILE * config;
+  char * config_path = calloc(100 , sizeof(char));
+  sprintf(config_path,"%s/.ternest/user/config.txt",getenv("HOME"));
+  config = fopen(config_path,"w");
+  file_fail_test(config, __FUNCTION__ , __LINE__);
+  free(config_path);
+
+  fprintf(config, "dateNaissance = %s\n", birthdate);
+  free(birthdate);
+  fprintf(config, "codeEtudiant = %s\n", student_id);
+  free(student_id);
+  fprintf(config, "browser = %s\n", browser);
+  free(browser);
+
+  fclose(config);
+
+}
+
+void
 print_usage(void)
 {
   puts(
@@ -48,8 +112,9 @@ parse_args(int argc, char **argv , type_args * args)
    const char * short_opt = "hs:";
    struct option long_opt[] =
    {
-      {"help",  no_argument,       NULL, 'h'},
-      {"show",  required_argument, NULL, 's'},
+      {"help",    no_argument,       NULL, 'h'},
+      {"show",    required_argument, NULL, 's'},
+      {"config",  no_argument      , NULL, 'c'},
       {    0 ,                  0,  0  , 0  }
    };
 
@@ -64,6 +129,9 @@ parse_args(int argc, char **argv , type_args * args)
       case 'h':
         print_usage();
         exit(0);
+      case 'c':
+        start_config();
+        break;
       case 's':
         args->show_opt = optarg;
         break;
@@ -159,7 +227,7 @@ main(int argc, char ** argv)
     else if ( parse_config(browser) )
         system("python3 $HOME/.ternest/webdriver/webdriver_chrome.py");
     else
-        puts("Unrecognized driver.");
+        puts("Unrecognized browser. Is your config set up?");
 
     free(browser);
     free(args.show_opt);
