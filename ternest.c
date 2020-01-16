@@ -104,6 +104,7 @@ print_usage(void)
   "DEFAULT        will check for new marks:\n"
   "--show=all     will show all your marks.\n"
   "--show=new     will show you your new marks.\n"
+  "--config       to configurate ternest.\n"
   "--help\n");
 }
 
