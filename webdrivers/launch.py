@@ -79,7 +79,7 @@ def check_for_new_marks(browser):
         if(len(marks_line[2].text) != 0
             and (marks_line[2].text.replace(" ", "")
             != prev_marks_elements[el_index][1][:12].replace(" ", "").replace("\n",""))
-            and len(marks_line[2].text.replace(" ", "")) < 9):
+            and marks_line[2].text.replace(" ", "")[-3] == '/'):
 
             new_marks.write(marks_line[0].text[:-11])
             new_marks.write(": ")
@@ -149,10 +149,16 @@ def ernest(browser):
 
     if(count > 0):
         lines = new_marks.readlines()
+        numerical_line = ""
         for line in lines:
             print('-> {:s}'.format(line.split(':')[0]), end='')
 
-            mark_numerical = float(line.split(':')[1][:4])
+            numerical_line = line.split(':')[1]
+            if( len(numerical_line) < 11):
+                mark_numerical = float(numerical_line[:4])
+            else:
+                mark_numerical = float(numerical_line[:5])
+
             if mark_numerical < 5.0:
                 print("     (you really fucked this one up)")
             elif mark_numerical < 7.0:
