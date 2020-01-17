@@ -78,7 +78,7 @@ def check_for_new_marks(browser):
 
         if(len(marks_line[2].text) != 0
             and marks_line[2].text.replace(" ", "")
-            != prev_marks_elements[el_index][1][:11].replace(" ", "")
+            != prev_marks_elements[el_index][1][:12].replace(" ", "")
             and len(marks_line[2].text.replace(" ", "")) < 9):
 
             new_marks.write(marks_line[0].text[:-11])
