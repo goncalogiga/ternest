@@ -150,28 +150,29 @@ def ernest(browser):
 
     if(count > 0):
         lines = new_marks.readlines()
-        numerical_line = ""
+        # numerical_line = ""
         for line in lines:
-            print('-> {:s}'.format(line.split(':')[0]), end='')
+            print('-> {:s}'.format(line.split(':')[0]), end='\n')
+            # print('-> {:s}'.format(line.split(':')[0]), end='')
 
-            numerical_line = line.split(':')[1]
-            if( len(numerical_line) < 11):
-                mark_numerical = float(numerical_line[:4])
-            else:
-                mark_numerical = float(numerical_line[:5])
-
-            if mark_numerical < 5.0:
-                print("     (you really fucked this one up)")
-            elif mark_numerical < 7.0:
-                print("     (warning: it's quite shit)")
-            elif mark_numerical < 10.0:
-                print("     (watch out, it's not great...)")
-            elif mark_numerical > 10.0 and mark_numerical < 14.0:
-                print("     (the mark is ok, don't worry)")
-            elif mark_numerical > 14.0:
-                print("     (this is good stuff !!)")
-            else:
-                print("     (Unrecognized numerical value. This might be a bug.)")
+            # numerical_line = line.split(':')[1]
+            # if( len(numerical_line) < 11):
+            #     mark_numerical = float(numerical_line[:4])
+            # else:
+            #     mark_numerical = float(numerical_line[:5])
+            #
+            # if mark_numerical < 5.0:
+            #     print("     (you really fucked this one up)")
+            # elif mark_numerical < 7.0:
+            #     print("     (warning: it's quite shit)")
+            # elif mark_numerical < 10.0:
+            #     print("     (watch out, it's not great...)")
+            # elif mark_numerical > 10.0 and mark_numerical < 14.0:
+            #     print("     (the mark is ok, don't worry)")
+            # elif mark_numerical > 14.0:
+            #     print("     (this is good stuff !!)")
+            # else:
+            #     print("     (Unrecognized numerical value. This might be a bug.)")
 
         print('Use ternest --show=new to see your new marks.')
 
