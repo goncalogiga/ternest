@@ -14,7 +14,7 @@ class bcolors:
 def create_marks(browser):
 
     f = open(os.path.expanduser("~/.ternest/user/your_marks.txt"), "w");
-    marks_class = browser.find_elements_by_class_name("elp3")
+    marks_class = browser.find_elements_by_class_name("elp3") + browser.find_elements_by_class_name("elp4")
 
     prev_ue = ""
 
@@ -65,7 +65,7 @@ def check_for_new_marks(browser):
 
     new_marks = open(os.path.expanduser("~/.ternest/cache/new_marks.txt"), "w");
 
-    marks_class = browser.find_elements_by_class_name("elp3")
+    marks_class = browser.find_elements_by_class_name("elp3") +  browser.find_elements_by_class_name("elp4")
 
     prev_ue , counter , el_index = "" , 0 , 0
 
@@ -75,6 +75,7 @@ def check_for_new_marks(browser):
 
         if prev_marks_elements[el_index][0] == '#':
             el_index += 1
+
 
         if(len(marks_line[2].text) != 0
             and (marks_line[2].text.replace(" ", "")
@@ -165,7 +166,7 @@ def ernest(browser):
                 print("     (warning: it's quite shit)")
             elif mark_numerical < 10.0:
                 print("     (watch out, it's not great...)")
-            elif mark_numerical > 10.0:
+            elif mark_numerical > 10.0 and mark_numerical < 14.0:
                 print("     (the mark is ok, don't worry)")
             elif mark_numerical > 14.0:
                 print("     (this is good stuff !!)")
